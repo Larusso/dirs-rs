@@ -5,6 +5,7 @@ language: rust
 os:
 - linux
 - osx
+- windows
 
 rust:
 - stable

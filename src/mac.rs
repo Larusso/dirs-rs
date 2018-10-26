@@ -1,6 +1,5 @@
 extern crate dirs_sys;
-
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 pub fn home_dir()       -> Option<PathBuf> { dirs_sys::home_dir() }
 pub fn cache_dir()      -> Option<PathBuf> { home_dir().map(|h| h.join("Library/Caches")) }
@@ -9,6 +8,7 @@ pub fn data_dir()       -> Option<PathBuf> { home_dir().map(|h| h.join("Library/
 pub fn data_local_dir() -> Option<PathBuf> { data_dir() }
 pub fn preference_dir() -> Option<PathBuf> { home_dir().map(|h| h.join("Library/Preferences")) }
 pub fn executable_dir() -> Option<PathBuf> { None }
+pub fn application_dir()-> Option<PathBuf> { Some(Path::new("/Applications").to_path_buf()) }
 pub fn runtime_dir()    -> Option<PathBuf> { None }
 pub fn audio_dir()      -> Option<PathBuf> { home_dir().map(|h| h.join("Music")) }
 pub fn desktop_dir()    -> Option<PathBuf> { home_dir().map(|h| h.join("Desktop")) }

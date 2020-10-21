@@ -15,6 +15,7 @@ pub fn executable_dir() -> Option<PathBuf> {
         data_dir().map(|mut e| { e.pop(); e.push("bin"); e })
     })
 }
+pub fn application_dir()-> Option<PathBuf> { None }
 pub fn audio_dir()      -> Option<PathBuf> { dirs_sys::user_dir("MUSIC") }
 pub fn desktop_dir()    -> Option<PathBuf> { dirs_sys::user_dir("DESKTOP") }
 pub fn document_dir()   -> Option<PathBuf> { dirs_sys::user_dir("DOCUMENTS") }

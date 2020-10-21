@@ -146,6 +146,18 @@ pub fn executable_dir() -> Option<PathBuf> {
 pub fn preference_dir() -> Option<PathBuf> {
     sys::preference_dir()
 }
+/// Returns the path to the applications directory.
+///
+/// The returned value depends on the operating system and is either a `Some`, containing a value from the following table, or a `None`.
+///
+/// |Platform | Value                     | Example         |
+/// | ------- | ------------------------- | --------------- |
+/// | Linux   | -                         | -               |
+/// | macOS   | `/Applications`           | –               |
+/// | Windows | `{FOLDERID_ProgramFiles}` | –               |
+pub fn application_dir() -> Option<PathBuf> {
+    sys::application_dir()
+}
 /// Returns the path to the user's runtime directory.
 ///
 /// The returned value depends on the operating system and is either a `Some`, containing a value from the following table, or a `None`.
@@ -280,6 +292,7 @@ mod tests {
         println!("data_local_dir: {:?}", ::data_local_dir());
         println!("executable_dir: {:?}", ::executable_dir());
         println!("preference_dir: {:?}", ::preference_dir());
+        println!("application_dir: {:?}",::application_dir());
         println!("runtime_dir:    {:?}", ::runtime_dir());
         println!("audio_dir:      {:?}", ::audio_dir());
         println!("home_dir:       {:?}", ::desktop_dir());

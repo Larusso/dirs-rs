@@ -1,5 +1,6 @@
 extern crate dirs_sys;
-
+extern crate winapi;
+//use winapi::um::knownfolders;
 use std::path::PathBuf;
 
 pub fn home_dir()       -> Option<PathBuf> { dirs_sys::known_folder_profile() }
@@ -8,6 +9,7 @@ pub fn data_local_dir() -> Option<PathBuf> { dirs_sys::known_folder_local_app_da
 pub fn cache_dir()      -> Option<PathBuf> { data_local_dir() }
 pub fn config_dir()     -> Option<PathBuf> { data_dir() }
 pub fn executable_dir() -> Option<PathBuf> { None }
+pub fn application_dir()-> Option<PathBuf> { dirs_sys::known_folder(&winapi::um::knownfolders::FOLDERID_ProgramFiles) }
 pub fn preference_dir() -> Option<PathBuf> { data_dir() }
 pub fn runtime_dir()    -> Option<PathBuf> { None }
 pub fn audio_dir()      -> Option<PathBuf> { dirs_sys::known_folder_music() }
